@@ -21,4 +21,4 @@ jobs:
         uses:  demyanets/angular-coverage-badges-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          coverage-summary-path: coverage/FrontEnd/coverage-summary.json
+          coverage-summary-path: ./coverage/frontend/coverage-summary.json
