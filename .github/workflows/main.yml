@@ -15,7 +15,7 @@ jobs:
         run: npm run build
         
       - name: Test
-        run: ng test --watch=false --code-coverage --browsers=Headless
+        run: npm run test:ci
         
       - name: Test angular action
         uses:  demyanets/angular-coverage-badges-action@v1
