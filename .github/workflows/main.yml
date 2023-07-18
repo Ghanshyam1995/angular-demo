@@ -15,9 +15,10 @@ jobs:
         run: npm run build
         
       - name: Test
-        run: npm run test:ci
+        run: ng test --watch=false --code-coverage --browsers=Headless
         
       - name: Test angular action
         uses:  demyanets/angular-coverage-badges-action@v1
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           coverage-summary-path: coverage/stslib/coverage-summary.json
