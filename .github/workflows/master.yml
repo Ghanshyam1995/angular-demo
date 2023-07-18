@@ -1,9 +1,9 @@
-name: build
+name: master
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  master:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
