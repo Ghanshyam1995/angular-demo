@@ -32,7 +32,16 @@ module.exports = function (config) {
           { type: 'text-summary' },
           { type: 'lcov' },
           { type : 'json-summary' }
-        ]
+        ],
+        check: {
+          emitWarning: false,
+          global: {
+            statements: 80,
+            branches: 80,
+            functions: 80,
+            lines: 80
+          }
+        }
       },
       reporters: ['progress', 'kjhtml'],
       port: 9876,
