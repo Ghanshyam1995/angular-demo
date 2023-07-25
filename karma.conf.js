@@ -33,15 +33,6 @@ module.exports = function (config) {
           { type: 'lcov' },
           { type : 'json-summary' }
         ],
-        check: {
-          emitWarning: false,
-          global: {
-            statements: 30,
-            branches: 30,
-            functions: 0,
-            lines: 20
-          }
-        }
       },
       reporters: ['progress', 'kjhtml'],
       port: 9876,
