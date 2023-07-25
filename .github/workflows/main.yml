@@ -29,7 +29,7 @@ jobs:
         id: report
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: coverage/coverage-summary.json
+          path: coverage/Frontend/coverage-summary.json
           title: Karma Test Coverage
 
       - name: Print the output summary
