@@ -24,20 +24,14 @@ jobs:
       - name: Test
         run: npm run test:ci
         
-      - name: Add workflow result as comment on PR
-        uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
+      - name: Coverage report
+        uses: eleboys/test-coverage-report-action@v1.0.2
+        id: report
         with:
-          script: |
-            const name = '${{ github.workflow	}}';
-            const url = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}';
-            const success = '${{ job.status }}' === 'success';
-            const body = `${name}: ${success ? 'succeeded ✅' : 'failed ❌'}\n${url}`;
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: coverage/coverage-summary.json
+          title: Karma Test Coverage
 
-            await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: body
-            })
+      - name: Print the output summary
+        run: echo "Report coverage json ${{ steps.report.outputs.summary }}"
 
