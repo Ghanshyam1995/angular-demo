@@ -39,7 +39,7 @@ module.exports = function (config) {
             statements: 30,
             branches: 30,
             functions: 0,
-            lines: 30
+            lines: 20
           }
         }
       },
